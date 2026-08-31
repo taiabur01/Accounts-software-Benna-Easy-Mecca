@@ -1,0 +1,46 @@
+import { useState } from "react";
+import AgencyList from "./pages/agencies/AgencyList";
+import GCodeList from "./pages/gcodes/GCodeList";
+import InvoiceEntryForm from "./pages/InvoiceEntryForm";
+import PurchaseEntryForm from "./pages/PurchaseEntryForm";
+import PaymentEntryForm from "./pages/PaymentEntryForm";
+
+const TABS = [
+  { key: "agencies", label: "Agencies" },
+  { key: "gcodes", label: "G-Codes" },
+  { key: "invoice", label: "Invoice Entry" },
+  { key: "purchase", label: "Purchase Entry" },
+  { key: "payment", label: "Payment / Receive" },
+];
+
+export default function App() {
+  const [tab, setTab] = useState("agencies");
+
+  return (
+    <div className="min-h-screen bg-[#e9ecef]">
+      <nav className="bg-[#2c3e50] px-6 py-3 flex gap-6">
+        {TABS.map((t) => (
+          <button
+            key={t.key}
+            onClick={() => setTab(t.key)}
+            className={`text-sm font-bold px-3 py-1.5 rounded ${
+              tab === t.key
+                ? "bg-white text-[#2c3e50]"
+                : "text-white hover:bg-white/10"
+            }`}
+          >
+            {t.label}
+          </button>
+        ))}
+      </nav>
+
+      <div className="py-8">
+        {tab === "agencies" && <AgencyList />}
+        {tab === "gcodes" && <GCodeList />}
+        {tab === "invoice" && <InvoiceEntryForm />}
+        {tab === "purchase" && <PurchaseEntryForm />}
+        {tab === "payment" && <PaymentEntryForm />}
+      </div>
+    </div>
+  );
+}
