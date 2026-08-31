@@ -1,6 +1,0 @@
-{
-  "name": "Benna Easy Mecca Accounts",
-  "description": "Accounts and ledger management system for Umrah agencies, invoice entry, purchase bills, payment transactions, and reconciliation.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
